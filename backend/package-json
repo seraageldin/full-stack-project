@@ -1,5 +1,5 @@
 {
-  "name": "your-app-name",
+  "name": "love-me-app",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js"
