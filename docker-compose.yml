@@ -5,7 +5,7 @@ services:
     image: nginx:latest
     container_name: love_me_frontend
     ports:
-      - "8080:80"
+      - "8081:80"
     volumes:
       - ./app:/usr/share/nginx/html:ro
 
