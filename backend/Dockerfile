@@ -1,26 +1,18 @@
-# Use a Python base image
-FROM python:3.9-slim
+# Use Node.js base image
+FROM node:18-alpine
 
-# Set the working directory
-WORKDIR /app
+# Set working directory
+WORKDIR /usr/src/app
 
-# Update package manager and ensure pip is installed
-RUN apt-get update && apt-get install -y \
-    python3-pip \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
 
-# Copy requirements file
-COPY requirements.txt .
-
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the app
+# Copy the rest of the application code
 COPY . .
 
-# Expose the application port
+# Expose the app's port
 EXPOSE 5000
 
-# Run the application
-CMD ["python", "app.py"]
+# Start the Node.js application
+CMD ["node", "index.js"]
