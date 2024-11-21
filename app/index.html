@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Me</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Me</title>
 </head>
 <body>
-  <h1>Tell Us About You!</h1>
-  <form id="client-form">
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="hobby" placeholder="Your Hobby" required>
-    <button type="submit">Submit</button>
-  </form>
+    <h1>Enter Your Details</h1>
+    <form id="client-form">
+        <label for="hobby">Hobby:</label>
+        <input type="text" id="hobby" name="hobby" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="button" id="submit-btn">Submit</button>
+    </form>
 
-  <script src="script.js"></script>
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', async () => {
+            const hobby = document.getElementById('hobby').value;
+            const email = document.getElementById('email').value;
+
+            const response = await fetch('http://localhost:5000/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ hobby, email }),
+            });
+
+            const result = await response.json();
+            alert(result.message || 'Something went wrong!');
+        });
+    </script>
 </body>
 </html>
