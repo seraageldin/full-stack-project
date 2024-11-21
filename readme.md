@@ -8,3 +8,13 @@ This project collects user information (hobby and email) and stores it in a MySQ
    ```bash
    git clone https://github.com/yourusername/love-me-database.git
    cd love-me-database
+
+DNS Resolution Issues
+
+Docker containers often face DNS resolution problems that prevent them from reaching external package sources.
+
+sudo nano /etc/docker/daemon.json
+
+{
+  "dns": ["8.8.8.8", "8.8.4.4"]
+}
