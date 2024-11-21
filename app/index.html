@@ -3,36 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Me</title>
+    <title>Submit Hobby and Email</title>
 </head>
 <body>
-    <h1>Enter Your Details</h1>
-    <form id="client-form">
+    <h1>Submit Your Hobby and Email</h1>
+    <form id="submitForm">
         <label for="hobby">Hobby:</label>
-        <input type="text" id="hobby" name="hobby" required>
-        <br>
+        <input type="text" id="hobby" name="hobby" required><br><br>
+
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <button type="button" id="submit-btn">Submit</button>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <button type="submit">Submit</button>
     </form>
 
-    <script>
-        document.getElementById('submit-btn').addEventListener('click', async () => {
-            const hobby = document.getElementById('hobby').value;
-            const email = document.getElementById('email').value;
-
-            const response = await fetch('http://localhost:5000/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ hobby, email }),
-            });
-
-            const result = await response.json();
-            alert(result.message || 'Something went wrong!');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
