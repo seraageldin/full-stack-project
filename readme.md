@@ -22,3 +22,5 @@ sudo nano /etc/docker/daemon.json
 sudo npm init -y
  sudo npm install express mysql2 body-parser
 
+in backend dir
+npm init -y
