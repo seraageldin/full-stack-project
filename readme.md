@@ -18,3 +18,7 @@ sudo nano /etc/docker/daemon.json
 {
   "dns": ["8.8.8.8", "8.8.4.4"]
 }
+
+sudo npm init -y
+ sudo npm install express mysql2 body-parser
+
