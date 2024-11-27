@@ -20,17 +20,15 @@ services:
 
   db:
     image: postgres:latest
-    container_name: website_db
-    restart: always
+    container_name: full-stack-project_db
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: userpassword
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
       POSTGRES_DB: client_data
-    ports:
-      - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
 
 volumes:
   db_data:
